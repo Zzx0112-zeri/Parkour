@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static collection;
+
 
 public class playerLife : MonoBehaviour
 {
@@ -29,8 +31,15 @@ private void Die()
 {
     rb.bodyType = RigidbodyType2D.Static;
     anim.SetTrigger("death");
-}
-private void RestartLevel()
+        collection col = FindObjectOfType<collection>();
+        if (col != null)
+        {
+            col.ResetCherryCount();
+        }
+        Invoke(nameof(RestartLevel), 1f);
+
+    }
+    private void RestartLevel()
 {
     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }

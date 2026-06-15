@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AllControl : MonoBehaviour
 {
+    
     public class GameManager
     {
         private static GameManager _instance;

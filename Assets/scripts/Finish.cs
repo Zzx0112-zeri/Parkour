@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static collection;
 
 public class Finish : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class Finish : MonoBehaviour
     }
     private void CompleteLevel()
     {
+        collection col = FindObjectOfType<collection>();
+        if (col != null)
+        {
+            col.ResetCherryCount();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

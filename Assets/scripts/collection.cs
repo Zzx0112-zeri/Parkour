@@ -25,5 +25,11 @@ public class collection : MonoBehaviour
             GameManager.Instance.score = cherries;
         }
     }
+    public void ResetCherryCount()
+    {
+        cherries = 0;
+        GameManager.Instance.score = 0;
+        cherriesText.text = "Cherries:" + cherries;
+    }
 
 }
